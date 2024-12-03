@@ -1,0 +1,15 @@
+stage two
+prompt user to enter weight in pounds
+collect and store it as pound
+prompt user to enter height in inches
+collect and store it as inches
+calculate pound / 0.45359237
+store it as result
+calculate inches / 0.0254
+store it as result1
+store result and result1 as result3
+calculate inches * inches
+store it as height
+calculate result3 * height
+store it as result4
+display result

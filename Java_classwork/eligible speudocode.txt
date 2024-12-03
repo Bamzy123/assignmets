@@ -1,0 +1,11 @@
+assign 18 to a variable name call vote
+assign 16 to a variable name call drive
+assign 21 to a variable name call drink
+prompt user to enter their age
+collect and store it as user age
+if user age is greater or equal to vote
+print you are eligible
+if user age is greater or equal to drive
+print you are eligible
+if user age is greater or equal to drink
+print you are eligible

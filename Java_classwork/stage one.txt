@@ -1,0 +1,13 @@
+stage one
+1 calculate energy needed to heat water
+2 collect input from user
+3 dis play result
+
+stage two
+1 prompt the user to enter amount of water in kilogram 
+2 store it as kilogram
+3 prompt the user to enter the initial temperature
+4 store it as temperature
+5 prompt the user to enter the final temperature
+6 store it as last temperature
+7 calculate last temperature minute inital temperature mutply by 4184

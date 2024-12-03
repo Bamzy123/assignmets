@@ -1,0 +1,12 @@
+assign 987 to a variable name call first
+assign 40125 to a variable name call second
+assign 85526 to a variable name call third
+prompt user to enter annual income
+collet and store it as annual
+if annual is less than or equal to first
+print 10%
+else if annual is less than or equal to second
+print 12%
+else if annual is less than or equal to third
+print 22%
+else print 24%

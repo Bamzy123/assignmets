@@ -1,0 +1,11 @@
+assign 10 to a variable name called cold
+assign 25 to a variable name called warm
+assign 25 to a variable name called hot
+prompt user to enter temperature
+collect and store it as temp
+if temp is equal to cold 
+print COLD
+if temp is less than or equal to warm 
+print WARM
+if temp is greater than hot 
+print HOT

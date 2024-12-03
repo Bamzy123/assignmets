@@ -1,0 +1,11 @@
+prompt user to enter age
+collect and store it as age
+assign 12 to variable name call child
+assign 17 to a variable name call teen
+if age is less than or equal to child
+print child
+else if age less than or equal to teen
+print teen
+else print adult
+
+

@@ -1,0 +1,8 @@
+prompt user to enter ya rank between 1 - 4
+collect and store it as rank
+using switch case
+then case 1 and print gold medal
+case 2 and print silver medal
+case 3 and print bronze medal
+case 4 and print participant ribbon
+

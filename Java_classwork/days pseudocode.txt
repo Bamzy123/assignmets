@@ -1,0 +1,11 @@
+prompt user to enter the day between 1 - 7
+collect and store it as days
+using switch case
+then case 1 and print Monday
+case 2 and print Tuesday
+case 3 and print Wednesday
+case 4 and print Thursday
+case 5 and print Friday
+case 6 and print Saturday
+case 7 and print Sunday
+
