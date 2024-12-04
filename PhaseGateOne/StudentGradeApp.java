@@ -39,7 +39,7 @@ for(int number = 0, counter = 1; number < totalStudent; number++, counter++) {
 
 	  	sum[number] = total;
 		totalSum[number] = total;
-		average[number] = total / totalSubject;
+		average[number] = (double) total / totalSubject;
        		}
 
 		Arrays.sort(totalSum);
@@ -115,7 +115,7 @@ System.out.println("\n SUBJECT SUMMARY");
 
 			System.out.println("Total score is: " + totalScoreOfStudent);
 
-			System.out.printf("Average score is %.2f: ", averageTotalScoreOfStudent);
+			System.out.printf("Average score is: " + averageTotalScoreOfStudent);
 
 			System.out.println("\nNumber of passes: " + pass +"\nNUmber of fails: " + fail);
 		}	
