@@ -82,7 +82,6 @@ System.out.println("\n SUBJECT SUMMARY");
 			int smallest = 101;
 			int highestStudent = 0;
 			int lowestStudent = 0;
-			int totalSubjectOfStudent = 0;
 			int totalScoreOfStudent = 0;
 			int pass = 0;
 			int fail = 0;
@@ -117,7 +116,7 @@ System.out.println("\n SUBJECT SUMMARY");
 
 			System.out.printf("Average score is: " + averageTotalScoreOfStudent);
 
-			System.out.println("\nNumber of passes: " + pass +"\nNUmber of fails: " + fail);
+			System.out.println("\nNumber of passes: " + pass +"\nNumber of fails: " + fail);
 		}	
 	}
 
