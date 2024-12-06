@@ -17,7 +17,6 @@ int choice;
 	do {
 
 	    System.out.println("Welcome to your phonebook!\n");
-	    System.out.println();
 	    System.out.println("1. Add contact");
 	    System.out.println("2. Remove contact");
             System.out.println("3. Find contact by phone number");
