@@ -4,24 +4,24 @@ public class TicTacToe {
 	private char[][] board = new char[3][3];
 
 	public void initializeBoard() {
-		for(int i = 0; i < 3; i++) {
-			for(int j = 0; j < 3; j++) {
-				board[i][j] = ' ';
+		for(int number = 0; number < 3; number++) {
+			for(int digit = 0; digit < 3; digit++) {
+				board[number][digit] = ' ';
 			}
 		}
 	}
 
 	
 	public void printBoard() {
-		for(int i = 0; i < 3; i++) {
-			for(int j = 0; j < 3; j++) {
-				System.out.print(board[i][j]);
-				if(j < 2) {
+		for(int number = 0; number < 3; number++) {
+			for(int digit = 0; digit < 3; digit++) {
+				System.out.print(board[number][digit]);
+				if(digit < 2) {
 					System.out.print(" | ");
 				}
 			}
 			System.out.println();
-			if (i < 2) System.out.println("----------");
+			if (number < 2) System.out.println("----------");
 		}
 	}
 
@@ -34,14 +34,14 @@ public class TicTacToe {
 	}
 
 	public boolean checkForWin(char piece) {
-		for(int i = 0; i < 3; i++) {
-			if(board[i][0] == piece && board[i][1] == piece && board[i][2] == piece) {
+		for(int number = 0; number < 3; number++) {
+			if(board[number][0] == piece && board[number][1] == piece && board[number][2] == piece) {
 				return true;
 			}
 		}
 
-		for(int i = 0; i < 3; i++) {
-			if(board[0][i] == piece && board[1][i] == piece && board[2][i] == piece) {
+		for(int number = 0; number < 3; number++) {
+			if(board[0][number] == piece && board[1][number] == piece && board[2][number] == piece) {
 				return true;
 			}
 		}
@@ -54,9 +54,9 @@ public class TicTacToe {
 	}
 	
 	public boolean checkForDraw() {
-		for(int i = 0; i < 3; i++) {
-			for(int j = 0; j < 3; j++) {
-				if(board[i][j] == ' ') {
+		for(int number = 0; number < 3; number++) {
+			for(int digit = 0; digit < 3; digit++) {
+				if(board[number][digit] == ' ') {
 					return false;
 			}
 		}
