@@ -6,7 +6,7 @@ public class CaesarCipher {
 		StringBuilder encryptedText = new StringBuilder();
 
 		for (char c : plaintext.toCharArray()) {
-			if (Character.isUppercase(c)) {
+			if (Character.isUpperCase(c)) {
 				encryptedText.append((char) ((c - 'A' + shift) % 26 + 'A'));
 		}
 
@@ -22,7 +22,7 @@ public class CaesarCipher {
 	return encryptedText.toString();
 }
 
-	public static void decrypt(String ciphertext, int shift) {
+	public static String decrypt(String ciphertext, int shift) {
 		StringBuilder decryptedText = new StringBuilder();
 
 		for (char c : ciphertext.toCharArray()) {
@@ -39,7 +39,7 @@ public class CaesarCipher {
 		}
 	}
 
-	return decryptedText.toString(c);
+	return decryptedText.toString();
 }
 
 	public static void main(String... args) {
