@@ -5,11 +5,11 @@ public class DiaryApp {
 
     static ArrayList<String> diary = new ArrayList<String>();
     static Scanner input = new Scanner(System.in);
-    static int pin = 0;
+    static int pin = -1;
 
     public static void mainMenu(){
         String prompt = """
-                WELCOME TO AYO'S DIARY
+                WELCOME TO BAMSY DIARY
                 CREATE NEW PIN CODE
               
                 """;
@@ -24,15 +24,15 @@ public class DiaryApp {
 
     public static void createEntry(){
 
-        System.out.println("LOADING>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println("LOADING >>>>>>>>>>>>>>>>>>>>>>>>");
 
 
-        System.out.println("Enter diary number ");
+        System.out.println("Enter your diary number ");
                 diary.add(input.nextLine());
 
                 input.nextLine();
 
-                System.out.println("Enter a title");
+                System.out.println("Enter your a title");
                 diary.add(input.nextLine());
 
                 System.out.println("Enter the content of your diary");
@@ -62,23 +62,23 @@ public class DiaryApp {
     }
 
     public static void findEntryById(String userInput){
-        ArrayList<String> temp = new ArrayList<>();
+        ArrayList<String> find = new ArrayList<>();
         for(int counter = 0; counter < diary.size(); counter++){
             if(diary.get(counter).equals(userInput)){
-                temp.add(diary.get(counter));
+                find.add(diary.get(counter));
             }
         }
-        System.out.println(temp);
+        System.out.println(find);
     }
 
     public static void updateEntry(){
-        System.out.println("Enter any field to update");
-        String updateField = input.nextLine();
-        int theIndex = diary.indexOf(updateField);
-        System.out.println("Loading>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        System.out.println("Enter value to update");
-        String updatedField = input.nextLine();
-        diary.set(theIndex, updatedField);
+        System.out.println("Enter any field to update..");
+        String update = input.nextLine();
+        int theIndex = diary.indexOf(update);
+        System.out.println("LOADING >>>>>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println("Enter value to update...");
+        String updated = input.nextLine();
+        diary.set(theIndex, updated);
         System.out.println(diary);
     }
 
