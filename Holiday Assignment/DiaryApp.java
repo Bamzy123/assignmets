@@ -96,14 +96,15 @@ public class DiaryApp {
 	    return;
 	}
 
-        String prompt = """
-		1. Add Entry
-		2. Update Entry
-		3. Delete Entry
-		4. Find Entry by Id
-		5. Lock Diary
-                """;
-        System.out.println(prompt);
+        String prompt;
+         prompt = """
+         1. Add Entry
+         2. Update Entry
+         3. Delete Entry
+         4. Find Entry by Id
+         5. Lock Diary
+ """;
+         System.out.println(prompt);
         int userInput = input.nextInt();
 	input.nextLine();
 
