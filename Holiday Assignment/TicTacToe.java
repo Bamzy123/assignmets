@@ -46,12 +46,8 @@ public class TicTacToe {
 			}
 		}
 
-		if ((board[0][0] == piece && board[1][1] == piece && board[2][2] == piece) || (board[0][2] == piece && board[1][1] == piece && board[2][0] == piece)) {
-			return true;
-		}
-
-		return false;
-	}
+        return (board[0][0] == piece && board[1][1] == piece && board[2][2] == piece) || (board[0][2] == piece && board[1][1] == piece && board[2][0] == piece);
+    }
 	
 	public boolean checkForDraw() {
 		for(int number = 0; number < 3; number++) {
