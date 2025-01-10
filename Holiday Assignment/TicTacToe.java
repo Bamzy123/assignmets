@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class TicTacToe {
-	private char[][] board = new char[3][3];
+	private final char[][] board = new char[3][3];
 
 	public void initializeBoard() {
 		for(int number = 0; number < 3; number++) {
@@ -46,7 +46,8 @@ public class TicTacToe {
 			}
 		}
 
-        return (board[0][0] == piece && board[1][1] == piece && board[2][2] == piece) || (board[0][2] == piece && board[1][1] == piece && board[2][0] == piece);
+        return (board[0][0] == piece && board[1][1] == piece && board[2][2] == piece) ||
+				(board[0][2] == piece && board[1][1] == piece && board[2][0] == piece);
     }
 	
 	public boolean checkForDraw() {
@@ -86,10 +87,10 @@ public class TicTacToe {
 			game.printBoard();
 
 			if(game.checkForWin(currentPlayer)) {
-				System.out.println("Player " + currentPlayer + " Wins!");
+				System.out.println("Player " + currentPlayer + " Wins The Game, Game Over!!");
 			gameEnded = true;
 			} else if(game.checkForDraw()) {
-				System.out.println("It's a draw!");
+				System.out.println("It's a draw...");
 				gameEnded = true;
 			} else {
 				currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';

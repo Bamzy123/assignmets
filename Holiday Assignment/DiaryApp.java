@@ -1,12 +1,11 @@
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
 public class DiaryApp {
 
-    static ArrayList<String> diary = new ArrayList<String>();
-    static Scanner input = new Scanner(System.in);
-    static int pin = -1;
-    static boolean isLocked = false;
+    private static final ArrayList<String> diary = new ArrayList<String>();
+    private static final Scanner input = new Scanner(System.in);
+    private static int pin = -1;
+    private static boolean isLocked = false;
 
     public static void mainMenu(){
         String prompt = """
@@ -53,15 +52,13 @@ public class DiaryApp {
         }
     }
 
-    public static String findEntryPrompt(){
-        String prompt = """
-                Enter diary id to find entry      
-                """;
+    public static void findEntryPrompt(){
+        String prompt = "Enter diary id to find entry\n";
+
         System.out.println(prompt);
         String userInput = input.next();
         findEntryById(userInput);
 	input.nextLine();
-        return userInput;
     }
 
     public static void findEntryById(String userInput) {
