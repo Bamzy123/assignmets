@@ -17,13 +17,13 @@ int choice;
 	do {
 
 	    System.out.println("Welcome to your phonebook!\n");
-	    System.out.println("1. Add contact");
-	    System.out.println("2. Remove contact");
-            System.out.println("3. Find contact by phone number");
-            System.out.println("4. Find contact by first name");
-            System.out.println("5. Find contact by last name");
-            System.out.println("6. Edit contact");
-	    System.out.println("7. exit");
+	    System.out.println("1. Add contact.");
+	    System.out.println("2. Remove contact.");
+		System.out.println("3. Find contact by phone number.");
+		System.out.println("4. Find contact by first name.");
+		System.out.println("5. Find contact by last name.");
+		System.out.println("6. Edit contact.");
+	    System.out.println("7. exit.");
             System.out.print("Choose an option: ");
 	    choice = scanner.nextInt();
 	    scanner.nextLine();
@@ -31,7 +31,7 @@ int choice;
 
 	    switch(choice) {
 		case 1:
-			System.out.print("Enter your contact's name: ");
+			System.out.print("Enter your contact's name (First name and Last name): ");
 			String name = scanner.nextLine();
 
 			System.out.print("Enter your contact's phone number: ");

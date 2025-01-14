@@ -111,9 +111,6 @@ public class AtmApp {
             }
         } while (choice != 8);
     }
-<<<<<<< HEAD
 }
 
-=======
-}
->>>>>>> f7c45fcbfdeec60f546235536333dfdc361938ef
+
