@@ -1,140 +1,162 @@
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.HashMap;
+
 public class DiaryApp {
 
-    private static final ArrayList<String> diary = new ArrayList<String>();
+    private static final HashMap<Integer, DiaryEntry> diary = new HashMap<>();
     private static final Scanner input = new Scanner(System.in);
     private static int pin = -1;
     private static boolean isLocked = false;
 
-    public static void mainMenu(){
+    static class DiaryEntry {
+        String title;
+        String content;
+
+        DiaryEntry(String title, String content) {
+            this.title = title;
+            this.content = content;
+        }
+
+        @Override
+        public String toString() {
+            return "Title: " + title + "\nContent: " + content;
+        }
+    }
+
+    public static void mainMenu() {
         String prompt = """
                 WELCOME TO BAMSY DIARY
-                CREATE NEW PIN CODE
-              
-                """;
+                CREATE NEW PIN CODE:
+               """;
         System.out.print(prompt);
         pin = input.nextInt();
-	input.nextLine();
+        input.nextLine();
 
-        if(pin > 0){
+        if (pin > 0) {
             createDiary();
         }
     }
 
+    public static void createEntry() {
+        System.out.println("LOADING >>>>>>>>>>");
 
-    public static void createEntry(){
+        System.out.println("Enter your diary id: ");
+        int diaryId = input.nextInt();
+        input.nextLine();
 
-        System.out.println("LOADING >>>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println("Enter your diary title: ");
+        String title = input.nextLine();
 
+        System.out.println("Enter the content of your diary: ");
+        String content = input.nextLine();
 
-        System.out.println("Enter your diary number ");
-                diary.add(input.nextLine());
+        diary.put(diaryId, new DiaryEntry(title, content));
 
-                input.nextLine();
+        System.out.println("Diary Entry Added: ");
+        System.out.println(diary.get(diaryId));
 
-                System.out.println("Enter your a title");
-                diary.add(input.nextLine());
-
-                System.out.println("Enter the content of your diary");
-                diary.add(input.nextLine());
-
-                System.out.println(diary);
-
-        System.out.println("Would you like to add more ???");
+        System.out.println("Would you like to add more? (yes/no)");
         String userInput = input.nextLine();
 
-        if (userInput.equals("yes")){
+        if (userInput.equalsIgnoreCase("yes")) {
             createEntry();
-        }
-        else {
+        } else {
             createDiary();
         }
     }
 
-    public static void findEntryPrompt(){
-        String prompt = "Enter diary id to find entry\n";
-
-        System.out.println(prompt);
-        String userInput = input.next();
-        findEntryById(userInput);
-	input.nextLine();
+    public static void findEntryPrompt() {
+        System.out.println("Enter diary id to find entry:");
+        int diaryId = input.nextInt();
+        input.nextLine();
+        findEntryById(diaryId);
     }
 
-    public static void findEntryById(String userInput) {
-        ArrayList<String> find = new ArrayList<>();
-        for(int counter = 0; counter < diary.size(); counter++){
-            if(diary.get(counter).equals(userInput)){
-                find.add(diary.get(counter));
-            }
+    public static void findEntryById(int diaryId) {
+        DiaryEntry entry = diary.get(diaryId);
+        if (entry != null) {
+            System.out.println(entry);
+        } else {
+            System.out.println("Entry not found.");
         }
-        System.out.println(find);
     }
 
     public static void updateEntry() {
-        System.out.println("Enter any field to update..");
-        String update = input.nextLine();
-        int theIndex = diary.indexOf(update);
-	if (theIndex == -1) {
-		System.out.println("Entry not found!");
-		return;
-      } 
-        System.out.println("LOADING >>>>>>>>>>>>>>>>>>>>>>>>>>");
-        System.out.println("Enter value to update...");
-        String updated = input.nextLine();
-        diary.set(theIndex, updated);
-        System.out.println(diary);
-    }
+        System.out.println("Enter diary number to update: ");
+        int diaryId = input.nextInt();
+        input.nextLine();
 
-     public static void createDiary() {
-	if (isLocked) {
-	    System.out.println("Diary is locked, please unlock it first...");
-	    unlockDiary();
-	    return;
-	}
+        DiaryEntry entry = diary.get(diaryId);
+        if (entry != null) {
+            System.out.println("Enter new title: ");
+            String newTitle = input.nextLine();
 
-        String prompt;
-         prompt = """
-         1. Add Entry
-         2. Update Entry
-         3. Delete Entry
-         4. Find Entry by Id
-         5. Lock Diary
- """;
-         System.out.println(prompt);
-        int userInput = input.nextInt();
-	input.nextLine();
+            System.out.println("Enter new content: ");
+            String newContent = input.nextLine();
 
-        switch(userInput){
-            case 1 -> createEntry();
-            case 2 -> updateEntry();
-            case 4 -> findEntryPrompt();
-	    case 5 -> lockDiary();
-	    default -> System.out.println("Invalid option...");
+            entry.title = newTitle;
+            entry.content = newContent;
+
+            System.out.println("Diary Entry Updated: ");
+            System.out.println(entry);
+        } else {
+            System.out.println("Entry not found!");
         }
     }
 
-     public static void lockDiary() {
-	isLocked = true;
-	System.out.println("Diary is now locked...");
-  }
+    public static void createDiary() {
+        while (true) {
+            if (isLocked) {
+                System.out.println("Diary is locked, please unlock it first...");
+                unlockDiary();
+                continue;
+            }
+
+            String prompt = """
+                    1. Add Entry
+                    2. Update Entry
+                    3. Delete Entry
+                    4. Find Entry by Id
+                    5. Lock Diary
+                    6. Exit
+                   """;
+            System.out.println(prompt);
+            int userInput = input.nextInt();
+            input.nextLine();
+
+            switch (userInput) {
+                case 1 -> createEntry();
+                case 2 -> updateEntry();
+                case 4 -> findEntryPrompt();
+                case 5 -> lockDiary();
+                case 6 -> {
+                    System.out.println("Goodbye!");
+                    return;
+                }
+                default -> System.out.println("Invalid option...");
+            }
+        }
+    }
+
+    public static void lockDiary() {
+        isLocked = true;
+        System.out.println("Diary is now locked...");
+    }
 
     public static void unlockDiary() {
-	System.out.println("Enter your pin to unlock your diary: ");
-	int enteredPin = input.nextInt();
-	input.nextLine();
+        System.out.println("Enter your pin to unlock your diary: ");
+        int enteredPin = input.nextInt();
+        input.nextLine();
 
-	if (enteredPin == pin) {
-		isLocked = false;
-		System.out.println("Diary unlocked successfully...");
-		createDiary();
-     }
-	else {
-		System.out.println("Incorrect pin, try again...");
-		unlockDiary();
-     }
-  }
-    public static void main(String... args){
+        if (enteredPin == pin) {
+            isLocked = false;
+            System.out.println("Diary unlocked successfully...");
+        } else {
+            System.out.println("Incorrect pin, try again...");
+        }
+    }
+
+    public static void main(String... args) {
         mainMenu();
     }
 }
